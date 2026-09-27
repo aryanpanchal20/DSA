@@ -105,22 +105,50 @@ void display()
     }
 }
 
+void search(int val)
+{
+    int ct=0;
+      if(head==NULL)
+    {
+        printf("List is Empty");
+        return;
+    }
+    struct Node *temp=head;
+    while (temp!=NULL)
+    {
+        ct++;
+        if(temp->data==val)
+        {
+            printf("\nKey found at index %d",ct);
+            return;
+        }
+       temp=temp->next;
+    }
+    printf("\nKey not found\n");
+    
+}
+
 int main()
 {
  inserttoend(10);
  inserttoend(20);
  inserttoend(30);
  inserttoend(40);
-//  display();
-    deletefromend();
-    display();
-    deletefromend();
-    display();
-    deletefromend();
-    display();
-    deletefromend();
-    display();
+ //display();
+// //  display();
+//     deletefromend();
+//     display();
+//     deletefromend();
+//     display();
+//     deletefromend();
+//     display();
+//     deletefromend();
+//     display();
+search(30);
+search(40);
 
- 
- display("\n");
+search(70);
+
+
+display();
 }
