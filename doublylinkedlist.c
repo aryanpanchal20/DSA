@@ -64,6 +64,32 @@ void inserttoend(int val)
     temp->next=newnode;
 }
 
+void deletefromend()
+{
+    if(head==NULL)
+    {
+        printf("List is Empty");
+        return;
+    }
+    struct Node *temp=head;
+
+    if(head->next==NULL)
+    {
+        head=NULL;
+        free(temp);
+        return;
+    }
+     while(temp->next!=NULL)
+    {
+        temp=temp->next;
+    }
+    temp->prev->next=NULL;
+    free(temp);
+  
+    printf("\nValue Removed\n");
+
+}
+
 void display()
 {
     if(head==NULL)
@@ -81,20 +107,20 @@ void display()
 
 int main()
 {
-    // inserttobegin(10);
-    // inserttobegin(20);
-    // inserttobegin(30);
-    // inserttobegin(40);
-    
-    // deletefrombegin();
-    inserttoend(10);
-    inserttoend(20);
-    inserttoend(30);
-    inserttoend(40);
-    
-    inserttobegin(70);
-
-    
-    
+ inserttoend(10);
+ inserttoend(20);
+ inserttoend(30);
+ inserttoend(40);
+//  display();
+    deletefromend();
     display();
+    deletefromend();
+    display();
+    deletefromend();
+    display();
+    deletefromend();
+    display();
+
+ 
+ display("\n");
 }
