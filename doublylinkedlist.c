@@ -30,6 +30,7 @@ void deletefrombegin()
     if(head==NULL)
     {
         printf("List is Empty");
+        return;
     }
     struct Node *temp=head;
     

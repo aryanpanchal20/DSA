@@ -114,12 +114,43 @@ void deletefromend()
 
     free(del);
 }
+
+
+void deletefrombegin()
+{
+    if(head==NULL)
+    {
+        printf("List is Empty");
+        return;
+    }
+
+
+    struct Node *temp=head;
+
+    while(temp->add!=head)
+    {
+        temp=temp->add;
+    }
+  
+    struct Node *del=head;
+    head=head->add;
+    temp->add=head;
+    free(del);
+
+
+}
 int main()
 {
     inserttobegin(10);
-    inserttobegin(10);            
-    inserttobegin(10);
-    inserttobegin(10);
+    inserttobegin(20);            
+    inserttobegin(30);
+    inserttobegin(40);
+
+    display();
+
+    deletefrombegin();
+    deletefrombegin();
+   
 
     display();
 
