@@ -8,6 +8,35 @@ struct Node{
 
 struct Node *head=NULL;
 
+
+void inserttobegin(int val)
+{
+    struct Node *newnode=malloc(sizeof(struct Node));
+    newnode->data=val;
+    newnode->add=NULL;
+
+    if(head==NULL)
+    {
+        head=newnode;
+        newnode->add=head;
+        return;
+    }
+
+    newnode->add=head;
+
+    struct Node *temp=head;
+
+    while(temp->add!=newnode->add)
+    {
+        temp=temp->add;
+    }
+
+    temp->add=newnode;
+    head=newnode;
+    
+}
+
+
 void inserttoend(int val)
 {
     struct Node *newnode = malloc(sizeof(struct Node));
@@ -53,18 +82,47 @@ void inserttoend(int val)
     }while(temp!=head);
 
     
-    printf("HEAD");
+  
 }
 
+void deletefromend()
+{
+    if(head==NULL)
+    {
+        printf("List is Empty");
+        return;
+    }
+
+    // Only one node
+    if(head->add==head)
+    {
+        free(head);
+        head=NULL;
+        return;
+    }
+
+    struct Node *temp=head;
+
+    while(temp->add->add!=head)
+    {
+        temp=temp->add;
+    }
+
+    struct Node *del=temp->add;
+
+    temp->add=head;
+
+    free(del);
+}
 int main()
 {
-    inserttoend(10);
-    inserttoend(20);
-    inserttoend(30);
-    inserttoend(40);
-    
-    display();
+    inserttobegin(10);
+    inserttobegin(10);            
+    inserttobegin(10);
+    inserttobegin(10);
 
     display();
+
+  
     return 0;
 }
